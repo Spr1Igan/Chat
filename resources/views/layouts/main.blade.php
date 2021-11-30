@@ -38,11 +38,16 @@
                 font-size: 3.5rem;
             }
         }
+        .button{
+           background-color: #212529;
+           border-color: cyan;
+           color: #fff;
+        }
     </style>
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.1/examples/sign-in/signin.css" rel="stylesheet">
 </head>
-<body class="text-center">
+<body style="background-color: #212a33;" class="text-center">
 @yield('content')
 </body>
 </html>

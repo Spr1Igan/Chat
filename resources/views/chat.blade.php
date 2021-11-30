@@ -11,8 +11,8 @@ body {
 .chat_window {
   position: absolute;
   width: calc(100% - 20px);
-  max-width: 800px;
-  height: 500px;
+  max-width: 1200px;
+  height: 700px;
   border-radius: 10px;
   background-color: #fff;
   left: 50%;
@@ -24,7 +24,7 @@ body {
 }
 
 .top_menu {
-  background-color: #fff;
+  background-color: slategray;
   width: 100%;
   padding: 20px 0 15px;
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
@@ -56,8 +56,9 @@ body {
   list-style: none;
   padding: 20px 10px 0 10px;
   margin: 0;
-  height: 347px;
+  height: 570px;
   overflow: scroll;
+  background-color: #386d81
 }
 .messages .message {
   clear: both;
@@ -139,7 +140,7 @@ body {
 .bottom_wrapper {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: slategray;
   padding: 20px 20px;
   position: absolute;
   bottom: 0;
@@ -160,15 +161,21 @@ body {
   width: calc(100% - 40px);
   position: absolute;
   outline-width: 0;
-  color: gray;
+  color: #fff;
+  background-color: slategray;
+  
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1;
 }
 .bottom_wrapper .send_message {
   width: 140px;
   height: 50px;
   display: inline-block;
   border-radius: 50px;
-  background-color: #a3d063;
-  border: 2px solid #a3d063;
+  background-color: #45829b;
+  border: 2px solid #bcbdc0;
   color: #fff;
   cursor: pointer;
   transition: all 0.2s linear;
@@ -190,10 +197,28 @@ body {
   display: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #386d81;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c7eafc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #386d81;
+}
 
 </style>
 
-
+<body style="background-color: #212a33;">
 <div class="chat_window">
     <div class="top_menu">
     <div class="buttons">
@@ -205,11 +230,12 @@ body {
     <ul id="table" class="messages">
    
     </ul>
-    <form action="/" method="POST"> 
+    <form action="/" id="form">
+    {{ method_field('PUT') }}
     {{ csrf_field() }}
     <div class="bottom_wrapper clearfix">
         <div class="message_input_wrapper">
-            <input name="massage" class="message_input" placeholder="Type your message here..." />
+            <input id="text" name="message_text" class="message_input" placeholder="Type your message here..." />
         </div>
         <button type="submit" class="send_message"><div >
             <div class="icon"></div>
@@ -226,6 +252,7 @@ body {
     </li>
 </div>
 </form>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     let elem
@@ -247,4 +274,17 @@ body {
     });
  
 
+    $( "#form" ).submit(function( event ) {
+ 
+     event.preventDefault();
+     
+     $.post( "/", $( "#form" ).serialize() );
+
+     document.getElementById("text").value = "";
+     refreshTicker()
+     
+    });
+    
+
 </script>
+ 

@@ -5,8 +5,18 @@
 <main class="form-signin">
     <form action="/login" method="post">
     {{ csrf_field() }}
-        <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Please login</h1>
+        
+        <h1 style="color: #fff;" class="h3 mb-3 fw-normal">Please login</h1>
+        
+ @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
         <div class="form-floating">
             <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -16,10 +26,10 @@
             <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        <button class="w-100 btn btn-lg btn-info button" type="submit">Login</button>
         <!-- <button>SignUp</button> -->
-        <a class="w-100 btn btn-lg btn-primary" style="margin-top: 10px;" href="/reg">SignUp</a>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        <a class="w-100 btn btn-lg btn-info button" style="margin-top: 10px;" href="/reg">SignUp</a>
+        <p class="mt-5 mb-3 text-muted">&copy;copyrating by Spr1gan</p>
     </form>
 </main>
 

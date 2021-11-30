@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Massages;
-use GuzzleHttp\Psr7\Message;
+use App\Models\Messages;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -20,8 +19,8 @@ class ChatController extends BaseController
     public function index()
     {
         if(Auth::check()){
-            $massages = Massages::all();
-            return view('chat', ['massages' => $massages]);
+            $messages = Messages::all();
+            return view('chat', ['messages' => $messages]);
         }else {
            return redirect('login');
         }
@@ -31,21 +30,13 @@ class ChatController extends BaseController
     public function add(Request $req){
         
        $email = Auth::user()->email;
-
-        $massage = [
-            'email' => $email,
-            'message' =>  $req['massage']
-        ];
-
-
-        DB::insert('insert into massages (email, massage) values (?, ?)', [$email, $req['massage']]);
-        $massages = Massages::all();
-        return view('chat', ['massages' => $massages]);
-        
+       DB::insert('insert into messages (email, message, date) values (?, ? , current_timestamp())', [$email, $req['message_text']]);
+    
     }
+
     public function get(){
-        $massages = Massages::all();
-        return view('data', ['massages' => $massages]);
+      $messages = DB::select('select * from messages where date >= DATE_ADD(CURDATE(), INTERVAL -3 DAY)');
+      return view('data', ['messages' => $messages]);
     }
 
 

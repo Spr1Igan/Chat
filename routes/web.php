@@ -17,11 +17,14 @@ use App\Http\Controllers\AutController;
 */
 
 Route::get('/',[ChatController::class,'index']);
-Route::post('/',[ChatController::class,'add']);
-//Route::put('/',[ChatController::class,'add']);
+Route::put('/',[ChatController::class,'add']);
+
 Route::get('/message',[ChatController::class,'get']);
+
 Route::get('/reg', [AutController::class,'reg_index']);
-Route::get('/login', [AutController::class,'login_index']);
 Route::post('/reg', [AutController::class,'save']);
+
+Route::get('/login', [AutController::class,'login_index']);
 Route::post('/login', [AutController::class,'login']);
+
 Route::get('/logout', [AutController::class,'logout']);
