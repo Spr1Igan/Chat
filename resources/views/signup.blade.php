@@ -28,6 +28,7 @@
         </div>
 
         <button class="w-100 btn btn-lg btn-info button" type="submit">Sign up</button>
+        <a style="margin-top: 10px;" href = "/login" class="w-100 btn btn-lg btn-info button">Login</a>
         <p class="mt-5 mb-3 text-muted">&copy; copyrating by Spr1gan</p>
     </form>
 </main>
