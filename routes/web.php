@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\AutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[ChatController::class,'index']);
+Route::post('/',[ChatController::class,'add']);
+//Route::put('/',[ChatController::class,'add']);
+Route::get('/message',[ChatController::class,'get']);
+Route::get('/reg', [AutController::class,'reg_index']);
+Route::get('/login', [AutController::class,'login_index']);
+Route::post('/reg', [AutController::class,'save']);
+Route::post('/login', [AutController::class,'login']);
+Route::get('/logout', [AutController::class,'logout']);
