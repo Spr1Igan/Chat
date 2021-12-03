@@ -29,9 +29,12 @@ class ChatController extends BaseController
     }
     public function add(Request $req){
         
-       $email = Auth::user()->email;
-       DB::insert('insert into messages (email, message, date) values (?, ? , current_timestamp())', [$email, $req['message_text']]);
-    
+        if(!empty($req['message_text'])){
+            $email = Auth::user()->email;
+            DB::insert(
+            'insert into messages (email, message, date) values (?, ? , current_timestamp())',
+             [$email, $req['message_text']]); 
+        }
     }
 
     public function get(){
