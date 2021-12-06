@@ -15,7 +15,7 @@ jobs:
         run: ls -la
 
       - name: cd
-        run: cd app
+        run: cd app/
 
       - name: ls
         run: ls -la
