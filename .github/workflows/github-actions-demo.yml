@@ -13,6 +13,9 @@ jobs:
 
       - name: ls
         run: ls -la
+
+      - name: cd 
+        run: cd ./app/http/controllers
  
       - name: Sniffer job
         run: |
