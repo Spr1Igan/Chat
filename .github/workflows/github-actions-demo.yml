@@ -11,6 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+    - name: ls1
+        run: ls -la
+
       - name: chmod
         run: sudo chmod -R 777 phpcs
 
