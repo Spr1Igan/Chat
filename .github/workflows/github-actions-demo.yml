@@ -10,6 +10,10 @@ jobs:
 
       - name: cd
         run: |
+          ls -la
+
+      - name: cd
+        run: |
           cd ./vendor/bin
 
       - name: Composer Install
