@@ -8,9 +8,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-       - name: Composer Install Dev
+      - name: Composer Install Dev
         run: |
           composer install
+
       - name: Sniffer job
         run: |
           composer check-style
