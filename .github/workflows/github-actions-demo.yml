@@ -10,8 +10,8 @@ jobs:
 
       - name: Composer Install Dev
         run: |
-          composer install --ignore-platform-reqs
+          composer global require "squizlabs/php_codesniffer=*"
 
       - name: Sniffer job
         run: |
-          composer check-style
+          ./vendor/bin/phpcs -p --standard=ruleset.xml --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 ./app/http/controllers tests
