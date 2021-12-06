@@ -3,6 +3,10 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Chat
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
