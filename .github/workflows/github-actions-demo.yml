@@ -9,12 +9,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: chmod
-          run: |
-          sudo chmod -R 777 phpcs
+        run: sudo chmod -R 777 phpcs
 
       - name: ls
-          run: |
-          ls -la
+        run: ls -la
  
       - name: Sniffer job
         run: |
