@@ -40,7 +40,7 @@ class ChatController extends BaseController
     }
 
     public function get(){
-      $messages = DB::select('select * from messages where date >= date_sub(NOW(), interval 1 hour)');
+      $messages = DB::select('select * from messages where date >= date_sub(NOW(), interval 3 hour)');
       return view('data', ['messages' => $messages]);
     }
 
