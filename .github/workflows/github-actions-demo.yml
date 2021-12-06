@@ -21,7 +21,7 @@ jobs:
         run: curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
 
       - name: ls
-        run: ls vendor
+        run: ls vendor/bit
 
       - name: Sniffer job
         run: |
