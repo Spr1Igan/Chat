@@ -17,6 +17,9 @@ jobs:
       - name: cd
         run: cd app
 
+      - name: ls
+        run: ls -la
+
       - name: cd
         run: cd http
  
