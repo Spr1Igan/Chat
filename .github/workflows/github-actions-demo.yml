@@ -12,17 +12,8 @@ jobs:
         run: sudo chmod -R 777 phpcs
 
       - name: ls
-        run: ls -la
+        run: ls app/Http
 
-      - name: cd
-        run: cd app/
-
-      - name: ls
-        run: ls -la
-
-      - name: cd
-        run: cd http
- 
       - name: Sniffer job
         run: |
           ./phpcs -p --standard=ruleset.xml --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 ./app/http/controllers/ tests
