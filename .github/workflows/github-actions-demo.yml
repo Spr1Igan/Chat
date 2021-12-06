@@ -3,16 +3,10 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: Chat
- 
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: ls1
-        run: ls -la
 
       - name: chmod
         run: sudo chmod -R 777 phpcs
@@ -21,7 +15,10 @@ jobs:
         run: ls -la
 
       - name: cd
-        run: cd app/http/controllers
+        run: cd app
+
+      - name: cd
+        run: cd http
  
       - name: Sniffer job
         run: |
