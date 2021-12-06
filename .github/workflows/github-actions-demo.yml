@@ -21,8 +21,8 @@ jobs:
         run: curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
 
       - name: ls
-        run: ls vendor/bit
+        run: ls vendor/bin
 
       - name: Sniffer job
         run: |
-          ./vendor/bin/phpcs -p --standard=ruleset.xml --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 app/Http/Controllers/ tests
+           vendor/bin/phpcs -p --standard=ruleset.xml --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 app/Http/Controllers/ tests
