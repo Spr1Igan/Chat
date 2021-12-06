@@ -12,7 +12,7 @@ jobs:
         run: sudo chmod -R 777 phpcs
 
       - name: ls
-        run: ls app/Http
+        run: ls slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints
 
       - name: ls
         run: sudo chmod -R 777 slevomat/
