@@ -4,8 +4,8 @@
     <exclude-pattern>*/public/*</exclude-pattern>
     <exclude-pattern>*/resources/*</exclude-pattern>
     <!-- relative path from PHPCS source location -->
-    <config name="installed_paths" value="slevomat/coding-standard"/>
+    <config name="installed_paths" value="./slevomat/coding-standard"/>
 
     <!-- specific sniffs to include -->
-    <rule ref="slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/DeclareStrictTypesSniff.php" />
+    <rule ref="./slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/DeclareStrictTypesSniff.php" />
 </ruleset>
