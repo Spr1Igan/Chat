@@ -15,7 +15,10 @@ jobs:
         run: ls app/Http
 
       - name: ls
-        run: sudo chmod -R 777 slevomat/ ls -la
+        run: sudo chmod -R 777 slevomat/
+
+      - name: ls
+        run: ls -la
 
       - name: Sniffer job
         run: |
