@@ -12,8 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-
-      - name: Composer Install Dev
+      - name: cd
         run: |
           cd vendor/bin
 
