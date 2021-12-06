@@ -4,7 +4,8 @@
   
     <title>chat</title>
  
-    <style>
+  <style>
+
 * {
     box-sizing: border-box;
   }
@@ -288,8 +289,9 @@ word-break:break-all;
 }
 
 
-
-    </style>
+  </style>
+    
+    
 
 </head>
 <body style="background-color: #212a33;">
