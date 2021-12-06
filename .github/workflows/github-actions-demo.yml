@@ -3,13 +3,15 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Chat
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Hello
-        run: composer check-style
+       - name: Composer Install Dev
+        run: |
+          composer install
+      - name: Sniffer job
+        run: |
+          composer check-style
+          composer fix-style
