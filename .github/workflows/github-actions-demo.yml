@@ -10,7 +10,7 @@ jobs:
 
       - name: cd
         run: |
-          cd vendor/bin
+          cd ./vendor/bin
 
       - name: Composer Install
         run: |
