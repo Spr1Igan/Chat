@@ -10,9 +10,8 @@ jobs:
 
       - name: Composer Install Dev
         run: |
-          composer install
+          composer install --ignore-platform-reqs
 
       - name: Sniffer job
         run: |
           composer check-style
-          composer fix-style
